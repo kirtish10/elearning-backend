@@ -2,7 +2,7 @@ package me.kirtish.elearning.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-
+import java.util.List;
 
 
 @Entity
@@ -17,6 +17,22 @@ public class Course implements Serializable {
     private String c_desp;
     private String c_fees;
     private String c_resource;
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_course_mapping",
+            joinColumns = @JoinColumn(
+                    name = "courseId",
+                    referencedColumnName = "course_id"
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "user_id",
+                    referencedColumnName = "user_id"
+            )
+
+    )
+    private List<User> users;
+
 
     public Course(Long course_id, String c_name, String c_desp, String c_fees, String c_resource) {
         this.course_id = course_id;

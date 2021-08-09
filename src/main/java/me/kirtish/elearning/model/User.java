@@ -8,7 +8,7 @@ import java.util.List;
 @Entity
 public class User implements Serializable {
     @Id
-    @SequenceGenerator(name="mysequence", initialValue=101)
+    @SequenceGenerator(name="mysequence", initialValue=101,allocationSize = 1)
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="mysequence")
     @Column(name = "user_id",nullable = false,updatable = false)
    private Long id;
@@ -19,6 +19,25 @@ public class User implements Serializable {
     private String reg_date;
     private String password;
     private String upload_photo;
+
+    @OneToMany(
+            cascade = CascadeType.ALL
+    )
+    @JoinColumn(
+            name = "user_id",
+            referencedColumnName = "user_id"
+    )
+    private List<Contact> contacts;
+
+    @OneToMany(
+            cascade = CascadeType.ALL
+    )
+    @JoinColumn(
+            name = "user_id",
+            referencedColumnName = "user_id"
+    )
+    private List<Feedback> feedbacks;
+
 
 
 
