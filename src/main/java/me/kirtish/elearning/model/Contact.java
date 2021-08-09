@@ -12,6 +12,7 @@ public class Contact {
     @Id
     @SequenceGenerator(
             name="contactIdSeq",
+            initialValue=1,
             allocationSize = 1
     )
     @GeneratedValue(
