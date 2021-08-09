@@ -1,8 +1,6 @@
 package me.kirtish.elearning.service;
 
-import me.kirtish.elearning.exception.UserNotFoundException;
 import me.kirtish.elearning.model.Course;
-import me.kirtish.elearning.model.User;
 import me.kirtish.elearning.repo.CourseRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
