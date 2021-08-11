@@ -29,6 +29,7 @@ public class User implements Serializable {
     )
     private List<Contact> contacts;
 
+
     @OneToMany(
             cascade = CascadeType.ALL
     )
@@ -37,6 +38,8 @@ public class User implements Serializable {
             referencedColumnName = "user_id"
     )
     private List<Feedback> feedbacks;
+    private Course course;
+
 
 
 

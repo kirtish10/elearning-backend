@@ -33,6 +33,20 @@ public class CourseResource {
         return new ResponseEntity<>(newCourse,HttpStatus.CREATED);
     }
 
+    @PutMapping("/update")
+    public ResponseEntity<Course> updateCourse(@RequestBody Course course) {
+        Course c = courseService.updateCourse(course);
+        return new ResponseEntity<Course>(c,HttpStatus.ACCEPTED);
+    }
+
+@DeleteMapping("/delete/{id}")
+public ResponseEntity<Course> deleteCourse(@PathVariable("id") Long id) {
+    courseService.deleteCourse(id);
+    return new ResponseEntity<>(HttpStatus.OK);
+}
+
+
+
 
 
 }

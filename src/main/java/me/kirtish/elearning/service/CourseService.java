@@ -27,9 +27,13 @@ public class CourseService {
         return courseRepo.save(course);
     }
 
-//    public Course findCourseByCourse_ID(Long course_id) {
-//        return courseRepo.findCourseByCourse_id(course_id)
-//                .orElseThrow(
-//                        () -> new UserNotFoundException("user by id" + course_id + " not found" ));
-//    }
+    public Course updateCourse(Course course) {
+        return courseRepo.save(course);
+    }
+
+    public void deleteCourse(Long id) {
+        courseRepo.deleteCourseById(id);
+    }
+
+
 }
